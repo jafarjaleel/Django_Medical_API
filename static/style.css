@@ -1,0 +1,30 @@
+
+
+/* Add some basic styling to the navbar */
+.navbar {
+  background-color: #386b7463;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(94, 55, 55, 0.1);
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #13395a;
+}
+
+.nav-link {
+  color: #337ab7;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #1e513c;
+}
+
+/* Add some basic styling to the main content section */
+.main-content {
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,45 @@
+{% extends "index.html" %}
+{% block content %}
+  <h2>Medicine List</h2>
+
+  <form class="form-inline mb-3" method="get" action="{% url 'medicinelist' %}">
+    <div class="input-group">
+      <input type="text" class="form-control" name="q" placeholder="Search medicines" value="{{ query }}">
+      <div class="input-group-append">
+        <button class="btn btn-primary" type="submit">Search</button>
+      </div>
+    </div>
+  </form>
+
+  {% if medicines %}
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Edit/Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for medicine in medicines %}
+            <tr>
+              <td>{{ medicine.name }}</td>
+              <td>{{ medicine.description }}</td>
+              <td>{{ medicine.price }}</td>
+              <td>
+                <a href="{% url 'medicineedit' medicine.id %}" class="btn btn-sm btn-primary">Edit</a>
+                <a href="{% url 'medicinedelete' medicine.id %}" class="btn btn-sm btn-danger">Delete</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <div class="alert alert-warning" role="alert">
+      No medicines available.
+    </div>
+  {% endif %}
+{% endblock %}

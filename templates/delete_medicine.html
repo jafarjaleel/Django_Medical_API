@@ -1,0 +1,11 @@
+{% extends "index.html" %}
+
+{% block content %}
+  <h2>Delete Medicine</h2>
+  <p>Are you sure you want to delete "{{ medicine.name }}"?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+  </form>
+  <a href="{% url 'medicinelist' %}">Cancel</a>
+{% endblock %}
